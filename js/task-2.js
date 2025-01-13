@@ -1,14 +1,37 @@
-function formatMessage(message, maxLength) {
-  if (message.length <= maxLength) {
-    return message;
+// function makeArray(firstArray, secondArray, maxLength) {
+//   let result = [];
+//   for (let i = 0; i < firstArray.length; i++) {
+//     result.push(firstArray[i]);
+//   }
+//   for (let i = 0; i < secondArray.length; i++) {
+//     result.push(secondArray[i]);
+//   }
+//   if (result.length > maxLength) {
+//     return result.slice(0, maxLength);
+//   } else {
+//     return result;
+//   }
+// }
+
+// console.log(makeArray(['Mango', 'Poly'], ['Ajax', 'Chelsea'], 3)); // ["Mango", "Poly", "Ajax"]
+// console.log(makeArray(['Mango', 'Poly', 'Houston'], ['Ajax', 'Chelsea'], 4)); // ["Mango", "Poly", "Houston", "Ajax"]
+// console.log(makeArray(['Mango'], ['Ajax', 'Chelsea', 'Poly', 'Houston'], 3)); // ["Mango", "Ajax", "Chelsea"]
+// console.log(makeArray(['Earth', 'Jupiter'], ['Neptune', 'Uranus'], 2)); // ["Earth", "Jupiter"]
+// console.log(makeArray(['Earth', 'Jupiter'], ['Neptune', 'Uranus'], 4)); // ["Earth", "Jupiter", "Neptune", "Uranus"]
+// console.log(makeArray(['Earth', 'Jupiter'], ['Neptune', 'Uranus', 'Venus'], 0)); // []
+
+function makeArray(firstArray, secondArray, maxLength) {
+  const con = firstArray.concat(secondArray);
+  if (con.length > maxLength) {
+    return con.slice(0, maxLength);
   } else {
-    const result = message.slice(0, maxLength);
-    return `${result}...`;
+    return con;
   }
 }
-console.log(formatMessage('Curabitur ligula sapien', 16)); // "Curabitur ligula..."
-console.log(formatMessage('Curabitur ligula sapien', 23)); // "Curabitur ligula sapien"
-console.log(formatMessage('Vestibulum facilisis purus nec', 20)); // "Vestibulum facilisis..."
-console.log(formatMessage('Vestibulum facilisis purus nec', 30)); // "Vestibulum facilisis purus nec"
-console.log(formatMessage('Nunc sed turpis a felis in nunc fringilla', 15)); // "Nunc sed turpis..."
-console.log(formatMessage('Nunc sed turpis a felis in nunc fringilla', 41)); // "Nunc sed turpis a felis in nunc fringilla"
+
+console.log(makeArray(['Mango', 'Poly'], ['Ajax', 'Chelsea'], 3)); // ["Mango", "Poly", "Ajax"]
+console.log(makeArray(['Mango', 'Poly', 'Houston'], ['Ajax', 'Chelsea'], 4)); // ["Mango", "Poly", "Houston", "Ajax"]
+console.log(makeArray(['Mango'], ['Ajax', 'Chelsea', 'Poly', 'Houston'], 3)); // ["Mango", "Ajax", "Chelsea"]
+console.log(makeArray(['Earth', 'Jupiter'], ['Neptune', 'Uranus'], 2)); // ["Earth", "Jupiter"]
+console.log(makeArray(['Earth', 'Jupiter'], ['Neptune', 'Uranus'], 4)); // ["Earth", "Jupiter", "Neptune", "Uranus"]
+console.log(makeArray(['Earth', 'Jupiter'], ['Neptune', 'Uranus', 'Venus'], 0)); // []
